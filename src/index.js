@@ -1,5 +1,5 @@
 import _ from 'lodash';
-// import './style.css';
+import './style.css';
 // import Icon from './logo.png';
 // import Data from './data.xml';
 import printMe from './print.js';
@@ -21,5 +21,14 @@ function component() {
 
   return element;
 }
+let element = component();
+document.body.appendChild(element);
 
-document.body.appendChild(component());
+if (module.hot) {
+  module.hot.accept('./print.js', function() {
+    console.log('Accepting the updated printMe module!');
+    document.body.removeChild(element);
+    element = component();
+    document.body.appendChild(element);
+  })
+}

@@ -1,4 +1,8 @@
 .hello {
   color: red;
-  background: url('./logo.png');
+  /* background: url('./logo.png'); */
+}
+
+body {
+  background: #f2f2f2;
 }
